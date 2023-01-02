@@ -1,0 +1,167 @@
+body{
+    font-family: 'Poppins', sans-serif;
+}
+
+.title{
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -30%);
+    text-align: center;
+    padding: 50px;
+}
+
+.logo{
+    height: 200px;
+    width: 200px;
+}
+
+.title-text{
+    font-size: 35px;
+    margin-bottom: 30px;
+}
+
+.welcome{
+    color: #6E6465;
+}
+
+.login-area{
+    border: 1px solid gray;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 20px;
+    padding-bottom: 30px;
+    border-radius: 10px;
+}
+
+.parent-login-div{
+    display: flex;
+    justify-content: center;
+}
+
+.login-title{
+    font-size: 26px;
+    margin-bottom: 20px;
+}
+
+.login-area > input, .inp{
+    border: 1px solid #6E6465;
+    margin-bottom: 20px;
+    width: 240px;
+}
+
+#login-btn, #deposit-btn, #withdraw-btn{
+    border: 2px solid #6E6465;
+    border-radius: 8px;
+    width: 90px;
+    height: 40px;
+    background: #6E6465;
+    color: white;
+    transition: 0.2s;
+}
+
+#login-btn:hover, #deposit-btn:hover, #withdraw-btn:hover{
+    border: 2px solid #6E6465;
+    color: #6E6465;
+    background-color: white;
+}
+
+#dashBoard{
+  display: none;
+}
+
+.dashLogo{
+  height: 60px;
+  width: 60px;
+}
+
+#navbarNav{
+    justify-content: right;
+}
+
+.navbar{
+  background-color: #6E6465;
+  text-align: center;
+}
+
+.nav-item > a{
+  color: white;
+}
+
+.nav-sec{
+    background-color: #6E6465;
+}
+
+#logout-btn{
+    border: 2px solid #fffefe;
+    border-radius: 8px;
+    width: 90px;
+    height: 40px;
+    background: #ffffff;
+    color: #6E6465;
+    transition: 0.2s;
+}
+
+#logout-btn:hover{
+    border: 2px solid #ffffff;
+    color: #ffffff;
+    background-color: #6E6465;
+}
+
+.logo-text{
+    margin-left: 10px;
+    padding-top: 10px;
+    font-size: 27px;
+}
+
+.dash-sec{
+    margin-top: 50px;
+}
+
+.balance, .deposit, .withdraw{
+    border: none;
+    border-radius: 10px;
+    padding: 25px;
+    color: white;
+    margin: 10px 20px;
+}
+
+.balance{
+    background-color: #6E6465;
+}
+
+.deposit{
+    background-color: #6E6465;
+}
+
+.withdraw{
+    background-color: #6E6465;
+}
+
+.transaction{
+    margin-top: 60px;
+}
+
+.trans{
+    border: 1px solid gray;
+    padding: 40px;
+    border-radius: 10px;
+    width: 90%;
+}
+
+#withdraw-btn{
+    width: 100px;
+}
+
+.inp{
+    width: 100%;
+}
+
+.trans-text{
+    font-size: 35px;
+    margin-bottom: 15px;
+}
+
+#unsuccesWithMsg1, #unsuccesWithMsg2{
+    color: red;
+}
