@@ -147,6 +147,7 @@ body{
     padding: 40px;
     border-radius: 10px;
     width: 90%;
+    margin-top: 20px;
 }
 
 #withdraw-btn{
@@ -162,6 +163,6 @@ body{
     margin-bottom: 15px;
 }
 
-#unsuccesWithMsg1, #unsuccesWithMsg2{
+#unsuccesWithMsg1, #unsuccesWithMsg3, #unsuccesWithMsg2, #unsuccessDepoMsg, #unsuccessDepoMsg2{
     color: red;
 }

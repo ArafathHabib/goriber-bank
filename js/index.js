@@ -23,6 +23,16 @@ const depositButton = document.getElementById('deposit-btn');
 depositButton.addEventListener('click', function(){
     const depositAmount = document.getElementById('depoAmount').value;
     let convertDepo = parseFloat(depositAmount);
+    let emptyMsg2 = " ";
+    let unsuccessMsg3 = "Deposit amount can't be empty.";
+    let unsuccessMsg4 = "Please type any positive amount."
+    if(isNaN(convertDepo) == true){
+        document.getElementById('unsuccessDepoMsg2').innerText = emptyMsg2;
+        document.getElementById('unsuccessDepoMsg').innerText = unsuccessMsg3;
+    }else if(convertDepo < 0){
+        document.getElementById('unsuccessDepoMsg').innerText = emptyMsg2;
+        document.getElementById('unsuccessDepoMsg2').innerText = unsuccessMsg4;
+    }else{
     let depoBalance = document.getElementById('show-depo').innerText;
     let convertedDepositBalance = parseFloat(depoBalance);
     const totalDeposit = convertDepo + convertedDepositBalance;
@@ -33,6 +43,7 @@ depositButton.addEventListener('click', function(){
     let convertedBalance = parseFloat(balance);
     let totalBalance = convertDepo + convertedBalance;
     document.getElementById('show-balance').innerText = totalBalance;
+    }
 })
 
 const withdrawButton = document.getElementById('withdraw-btn');
@@ -45,11 +56,18 @@ withdrawButton.addEventListener('click', function(event2){
 
     let unsuccessMsg1 = "You can't withdraw more than your balance.";
     let unsuccessMsg2 = "Your balance is $0. Deposit some amount first.";
-    let emptyMsg = "";
-    if(convertedBalance == 0){
+    let emptyMsg = " ";
+    if(isNaN(convertedWithdrawAmount) == true){
+        document.getElementById('unsuccesWithMsg1').innerText = emptyMsg;
+        document.getElementById('unsuccesWithMsg2').innerText = emptyMsg;
+        document.getElementById('unsuccesWithMsg3').innerText = "Withdraw Amount can't be empty."
+    }
+    else if(convertedBalance == 0){
+        document.getElementById('unsuccesWithMsg3').innerText = emptyMsg;
         document.getElementById('unsuccesWithMsg2').innerText = emptyMsg;
        document.getElementById('unsuccesWithMsg1').innerText = unsuccessMsg2;
     }else if(convertedBalance < convertedWithdrawAmount){
+        document.getElementById('unsuccesWithMsg3').innerText = emptyMsg;
         document.getElementById('unsuccesWithMsg1').innerText = emptyMsg;
         document.getElementById('unsuccesWithMsg2').innerText = unsuccessMsg1;
     }else{
