@@ -166,3 +166,7 @@ body{
 #unsuccesWithMsg1, #unsuccesWithMsg3, #unsuccesWithMsg2, #unsuccessDepoMsg, #unsuccessDepoMsg2, #unsuccesWithMsg4{
     color: red;
 }
+
+.dashH2{
+    font-size: 40px;
+}

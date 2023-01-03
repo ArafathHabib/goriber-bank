@@ -1,12 +1,16 @@
 function displayMessage(){
     let username = document.getElementById("username").value;
     let password = document.getElementById("password").value;
-     let unsuccessMsg = "Incorrect email and password";
+    let unsuccessMsg = "Incorrect email and password";
+    let emptyMsg3 = "";
     if(username == "admin" && password == "admin123"){
         const loginBtn = document.getElementById('login-btn');
         function display(){
+            document.getElementById('username').value = emptyMsg3;
+            document.getElementById('password').value = emptyMsg3;
+            document.getElementById("showwronginputhere").innerText = emptyMsg3;
             document.getElementById('login-page').style.display = "none";
-             document.getElementById('dashBoard').style.display = "block";
+            document.getElementById('dashBoard').style.display = "block";
         }
         display();
     }else{
@@ -64,22 +68,26 @@ withdrawButton.addEventListener('click', function(event2){
         document.getElementById('unsuccesWithMsg2').innerText = emptyMsg;
         document.getElementById('unsuccesWithMsg4').innerText = emptyMsg;
         document.getElementById('unsuccesWithMsg3').innerText = "Withdraw Amount can't be empty.";
+        document.getElementById('withAmount').value = "";
     }else if(convertedWithdrawAmount < 0){
         document.getElementById('unsuccesWithMsg1').innerText = emptyMsg;
         document.getElementById('unsuccesWithMsg2').innerText = emptyMsg;
         document.getElementById('unsuccesWithMsg3').innerText = emptyMsg;
         document.getElementById('unsuccesWithMsg4').innerText = "Withdraw amount can't be negative";
+        document.getElementById('withAmount').value = "";
     }
     else if(convertedBalance == 0){
         document.getElementById('unsuccesWithMsg3').innerText = emptyMsg;
         document.getElementById('unsuccesWithMsg2').innerText = emptyMsg;
         document.getElementById('unsuccesWithMsg4').innerText = emptyMsg;
        document.getElementById('unsuccesWithMsg1').innerText = unsuccessMsg2;
+       document.getElementById('withAmount').value = "";
     }else if(convertedBalance < convertedWithdrawAmount){
         document.getElementById('unsuccesWithMsg3').innerText = emptyMsg;
         document.getElementById('unsuccesWithMsg1').innerText = emptyMsg;
         document.getElementById('unsuccesWithMsg4').innerText = emptyMsg;
         document.getElementById('unsuccesWithMsg2').innerText = unsuccessMsg1;
+        document.getElementById('withAmount').value = "";
     }else{
     let withdrawBalance = document.getElementById('show-with').innerText;
     let convertedWithdrawBalance = parseFloat(withdrawBalance);
