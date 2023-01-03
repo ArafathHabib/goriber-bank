@@ -43,6 +43,8 @@ depositButton.addEventListener('click', function(){
     let convertedBalance = parseFloat(balance);
     let totalBalance = convertDepo + convertedBalance;
     document.getElementById('show-balance').innerText = totalBalance;
+    document.getElementById('unsuccessDepoMsg2').innerText = emptyMsg2;
+        document.getElementById('unsuccessDepoMsg').innerText = emptyMsg2;
     }
 })
 
@@ -60,15 +62,23 @@ withdrawButton.addEventListener('click', function(event2){
     if(isNaN(convertedWithdrawAmount) == true){
         document.getElementById('unsuccesWithMsg1').innerText = emptyMsg;
         document.getElementById('unsuccesWithMsg2').innerText = emptyMsg;
-        document.getElementById('unsuccesWithMsg3').innerText = "Withdraw Amount can't be empty."
+        document.getElementById('unsuccesWithMsg4').innerText = emptyMsg;
+        document.getElementById('unsuccesWithMsg3').innerText = "Withdraw Amount can't be empty.";
+    }else if(convertedWithdrawAmount < 0){
+        document.getElementById('unsuccesWithMsg1').innerText = emptyMsg;
+        document.getElementById('unsuccesWithMsg2').innerText = emptyMsg;
+        document.getElementById('unsuccesWithMsg3').innerText = emptyMsg;
+        document.getElementById('unsuccesWithMsg4').innerText = "Withdraw amount can't be negative";
     }
     else if(convertedBalance == 0){
         document.getElementById('unsuccesWithMsg3').innerText = emptyMsg;
         document.getElementById('unsuccesWithMsg2').innerText = emptyMsg;
+        document.getElementById('unsuccesWithMsg4').innerText = emptyMsg;
        document.getElementById('unsuccesWithMsg1').innerText = unsuccessMsg2;
     }else if(convertedBalance < convertedWithdrawAmount){
         document.getElementById('unsuccesWithMsg3').innerText = emptyMsg;
         document.getElementById('unsuccesWithMsg1').innerText = emptyMsg;
+        document.getElementById('unsuccesWithMsg4').innerText = emptyMsg;
         document.getElementById('unsuccesWithMsg2').innerText = unsuccessMsg1;
     }else{
     let withdrawBalance = document.getElementById('show-with').innerText;
@@ -79,5 +89,9 @@ withdrawButton.addEventListener('click', function(event2){
     let totalBalance = convertedBalance - convertedWithdrawAmount;
     document.getElementById('show-balance').innerText = totalBalance;
     document.getElementById('withAmount').value = "";
+    document.getElementById('unsuccesWithMsg3').innerText = emptyMsg;
+    document.getElementById('unsuccesWithMsg1').innerText = emptyMsg;
+    document.getElementById('unsuccesWithMsg4').innerText = emptyMsg;
+    document.getElementById('unsuccesWithMsg2').innerText = emptyMsg;
     }
 })
