@@ -23,6 +23,18 @@ function logout(){
         document.getElementById('login-page').style.display = "block";
 }
 
+//Empty Message function 
+function emptyMessage(id){
+    var space = " ";
+    document.getElementById(id).innerText = space;
+}
+
+//Empty value function
+function emptyValue(id){
+    let space = " ";
+    document.getElementById(id).value = space;
+}
+
 const depositButton = document.getElementById('deposit-btn');
 depositButton.addEventListener('click', function(){
     const depositAmount = document.getElementById('depoAmount').value;
@@ -31,24 +43,24 @@ depositButton.addEventListener('click', function(){
     let unsuccessMsg3 = "Deposit amount can't be empty.";
     let unsuccessMsg4 = "Please type any positive amount."
     if(isNaN(convertDepo) == true){
-        document.getElementById('unsuccessDepoMsg2').innerText = emptyMsg2;
+        emptyMessage("unsuccessDepoMsg2");
         document.getElementById('unsuccessDepoMsg').innerText = unsuccessMsg3;
     }else if(convertDepo < 0){
-        document.getElementById('unsuccessDepoMsg').innerText = emptyMsg2;
+        emptyMessage("unsuccessDepoMsg");
         document.getElementById('unsuccessDepoMsg2').innerText = unsuccessMsg4;
     }else{
-    let depoBalance = document.getElementById('show-depo').innerText;
-    let convertedDepositBalance = parseFloat(depoBalance);
-    const totalDeposit = convertDepo + convertedDepositBalance;
-    document.getElementById('show-depo').innerText = totalDeposit;
-    document.getElementById('depoAmount').value = "";
+        let depoBalance = document.getElementById('show-depo').innerText;
+        let convertedDepositBalance = parseFloat(depoBalance);
+        const totalDeposit = convertDepo + convertedDepositBalance;
+        document.getElementById('show-depo').innerText = totalDeposit;
+        emptyValue('depoAmount');
 
-    let balance = document.getElementById('show-balance').innerText;
-    let convertedBalance = parseFloat(balance);
-    let totalBalance = convertDepo + convertedBalance;
-    document.getElementById('show-balance').innerText = totalBalance;
-    document.getElementById('unsuccessDepoMsg2').innerText = emptyMsg2;
-        document.getElementById('unsuccessDepoMsg').innerText = emptyMsg2;
+        let balance = document.getElementById('show-balance').innerText;
+        let convertedBalance = parseFloat(balance);
+        let totalBalance = convertDepo + convertedBalance;
+        document.getElementById('show-balance').innerText = totalBalance;
+        emptyMessage('unsuccessDepoMsg2');
+        emptyMessage('unsuccessDepoMsg');
     }
 })
 
@@ -64,28 +76,28 @@ withdrawButton.addEventListener('click', function(event2){
     let unsuccessMsg2 = "Your balance is $0. Deposit some amount first.";
     let emptyMsg = " ";
     if(isNaN(convertedWithdrawAmount) == true){
-        document.getElementById('unsuccesWithMsg1').innerText = emptyMsg;
-        document.getElementById('unsuccesWithMsg2').innerText = emptyMsg;
-        document.getElementById('unsuccesWithMsg4').innerText = emptyMsg;
+        emptyMessage('unsuccesWithMsg1');
+        emptyMessage('unsuccesWithMsg2');
+        emptyMessage('unsuccesWithMsg4');
         document.getElementById('unsuccesWithMsg3').innerText = "Withdraw Amount can't be empty.";
-        document.getElementById('withAmount').value = "";
+        emptyValue('withAmount');
     }else if(convertedWithdrawAmount < 0){
-        document.getElementById('unsuccesWithMsg1').innerText = emptyMsg;
-        document.getElementById('unsuccesWithMsg2').innerText = emptyMsg;
-        document.getElementById('unsuccesWithMsg3').innerText = emptyMsg;
+        emptyMessage('unsuccesWithMsg1');
+        emptyMessage('unsuccesWithMsg2');
+        emptyMessage('unsuccesWithMsg3');
         document.getElementById('unsuccesWithMsg4').innerText = "Withdraw amount can't be negative";
         document.getElementById('withAmount').value = "";
     }
     else if(convertedBalance == 0){
-        document.getElementById('unsuccesWithMsg3').innerText = emptyMsg;
-        document.getElementById('unsuccesWithMsg2').innerText = emptyMsg;
-        document.getElementById('unsuccesWithMsg4').innerText = emptyMsg;
+        emptyMessage('unsuccesWithMsg3');
+        emptyMessage('unsuccesWithMsg2');
+        emptyMessage('unsuccesWithMsg4');
        document.getElementById('unsuccesWithMsg1').innerText = unsuccessMsg2;
        document.getElementById('withAmount').value = "";
     }else if(convertedBalance < convertedWithdrawAmount){
-        document.getElementById('unsuccesWithMsg3').innerText = emptyMsg;
-        document.getElementById('unsuccesWithMsg1').innerText = emptyMsg;
-        document.getElementById('unsuccesWithMsg4').innerText = emptyMsg;
+        emptyMessage('unsuccesWithMsg3');
+        emptyMessage('unsuccesWithMsg1');
+        emptyMessage('unsuccesWithMsg4');
         document.getElementById('unsuccesWithMsg2').innerText = unsuccessMsg1;
         document.getElementById('withAmount').value = "";
     }else{
@@ -97,9 +109,9 @@ withdrawButton.addEventListener('click', function(event2){
     let totalBalance = convertedBalance - convertedWithdrawAmount;
     document.getElementById('show-balance').innerText = totalBalance;
     document.getElementById('withAmount').value = "";
-    document.getElementById('unsuccesWithMsg3').innerText = emptyMsg;
-    document.getElementById('unsuccesWithMsg1').innerText = emptyMsg;
-    document.getElementById('unsuccesWithMsg4').innerText = emptyMsg;
-    document.getElementById('unsuccesWithMsg2').innerText = emptyMsg;
+    emptyMessage('unsuccesWithMsg3');
+    emptyMessage('unsuccesWithMsg1');
+    emptyMessage('unsuccesWithMsg4');
+    emptyMessage('unsuccesWithMsg2');
     }
 })
